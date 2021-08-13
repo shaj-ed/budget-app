@@ -1,0 +1,99 @@
+@use 'variables' as *;
+@use 'mixins' as m;
+
+.forms {
+  width: 100%;
+  max-width: 50rem;
+  padding: 3rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -250%);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+
+  @include m.responsive-size(xlarge) {
+    grid-area: forms;
+    opacity: 1;
+    position: initial;
+    transform: initial;
+    top: initial;
+    left: initial;
+    padding: 0;
+    margin-left: 3rem;
+    justify-self: end;
+    align-self: center;
+  }
+
+  .error {
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.8rem;
+    background-color: var(--card-background);
+    color: var(--color-danger);
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    display: none;
+
+    &.show-error {
+      display: block;
+    }
+  }
+
+  .add-budget-form,
+  .add-expenses-form {
+    width: 100%;
+    max-width: 100%;
+    padding: 4rem;
+    background-color: var(--secondary-background);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+
+    label {
+      transform: translateX(-200%);
+    }
+
+    input {
+      width: 100%;
+      outline: 0;
+      padding: 1rem 2.5rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      background-color: transparent;
+      border-radius: 3rem;
+
+      &::placeholder {
+        font-family: var(--font-stack);
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+    }
+
+    button {
+      border: 0;
+      outline: 0;
+      padding: 1.4rem;
+      background-color: var(--card-background);
+      color: var(--secondary-text-color);
+      font-family: inherit;
+      font-size: 1.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-radius: 3rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in;
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  .add-budget-form {
+    margin-bottom: 5rem;
+  }
+}

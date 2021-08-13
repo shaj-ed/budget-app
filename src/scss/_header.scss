@@ -1,0 +1,38 @@
+@use 'variables' as *;
+@use 'mixins' as m;
+
+.header {
+  max-width: 111rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__user {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    &--image {
+      width: 6rem;
+      height: 6rem;
+      object-fit: cover;
+      border-radius: 50%;
+      //   border: 0.4rem solid var(--primary-text-color);
+
+      @include m.responsive-size(medium) {
+        width: 8rem;
+        height: 8rem;
+      }
+    }
+
+    &--name {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--primary-text-color);
+
+      @include m.responsive-size(medium) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}

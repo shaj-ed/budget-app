@@ -1,0 +1,17 @@
+@use 'variables' as *;
+
+// Responsive breakpoints
+$breakpoints: (
+  "medium": 48rem,
+  "large": 62rem,
+  "xlarge": 75rem,
+  "xxlarge": 87.5rem,
+);
+
+@mixin responsive-size($size) {
+  $breakpoint-size: map-get($breakpoints, $size);
+
+  @media (min-width: $breakpoint-size) {
+    @content;
+  }
+}
